@@ -282,7 +282,7 @@ class UploadBehavior extends Behavior
     protected function delete($attribute, $old = false)
     {
         $path = $this->getUploadPath($attribute, $old);
-        if (is_file($path)) {
+        if (!empty($path) && is_file($path)) {
             unlink($path);
         }
     }
